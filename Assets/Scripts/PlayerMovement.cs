@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public float turnSpeed = 20f;
 
+    Rigidbody m_Rigidbody;
     Animator m_Animator;
     Vector3 m_Movement;
     Quaternion m_Rotation = Quaternion.identity;
@@ -13,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         m_Animator = GetComponent<Animator>();
+        m_Rigidbody = GetComponent<Rigidbody>();
     }
 
     
@@ -31,7 +33,10 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 desiredForward = Vector3.RotateTowards(transform.forward, m_Movement, turnSpeed * Time.deltaTime, 0f);
         m_Rotation = Quaternion.LookRotation(desiredForward);
+    }
 
+    void OnAnimatorMove()
+    {
 
     }
 }
