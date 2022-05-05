@@ -650,7 +650,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   navMeshAgent: {fileID: 350207081023987469}
-  waypoints: []
+  waypoints:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &1585927748385541457
 GameObject:
   m_ObjectHideFlags: 0
