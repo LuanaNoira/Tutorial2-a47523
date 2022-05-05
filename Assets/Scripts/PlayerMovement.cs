@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public float turnSpeed = 20f;
 
+    AudioSource m_AudioSource;
     Rigidbody m_Rigidbody;
     Animator m_Animator;
     Vector3 m_Movement;
@@ -13,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
+        m_AudioSource = GetComponent<AudioSource>();
         m_Animator = GetComponent<Animator>();
         m_Rigidbody = GetComponent<Rigidbody>();
     }
@@ -30,6 +32,18 @@ public class PlayerMovement : MonoBehaviour
         bool hasVerticalInput = !Mathf.Approximately(vertical, 0f);
         bool isWalking = hasHorizontalInput || hasVerticalInput;
         m_Animator.SetBool("IsWalking", isWalking);
+
+        if (isWalking)
+        {
+            if (!m_AudioSource.isPlaying)
+            {
+                m_AudioSource.Play();
+            }
+        }
+        else
+        {
+            m_AudioSource.Stop();
+        }
 
         Vector3 desiredForward = Vector3.RotateTowards(transform.forward, m_Movement, turnSpeed * Time.deltaTime, 0f);
         m_Rotation = Quaternion.LookRotation(desiredForward);
