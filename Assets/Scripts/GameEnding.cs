@@ -9,7 +9,10 @@ public class GameEnding : MonoBehaviour
     public GameObject player;
     public CanvasGroup exitBackgroundImageCanvasGroup;
 
+    public CanvasGroup caughtBackgroundImageCanvasGroup;
+
     bool m_IsPlayerAtExit;
+    bool m_IsPlayerCaught;
     float m_Timer;
 
     void OnTriggerEnter(Collider other)
@@ -24,14 +27,19 @@ public class GameEnding : MonoBehaviour
     {
         if (m_IsPlayerAtExit)
         {
-            EndLevel();
+            EndLevel(exitBackgroundImageCanvasGroup);
+        }
+        else if (m_IsPlayerCaught)
+        {
+            EndLevel(caughtBackgroundImageCanvasGroup);
         }
     }
 
-    void EndLevel()
+    void EndLevel(CanvasGroup imageCanvasGroup)
     {
         m_Timer += Time.deltaTime;
-        exitBackgroundImageCanvasGroup.alpha = m_Timer / fadeDuration;
+
+        imageCanvasGroup.alpha = m_Timer / fadeDuration;
 
         if (m_Timer > fadeDuration + displayImageDuration)
         {
