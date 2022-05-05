@@ -3532,6 +3532,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ed8f9d8127f1ec48a73132817cfdf0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fadeDuration: 1
+  displayImageDuration: 1
+  player: {fileID: 1103527998}
+  exitBackgroundImageCanvasGroup: {fileID: 1921655737}
 --- !u!1 &914611914
 GameObject:
   m_ObjectHideFlags: 0
@@ -3759,6 +3763,12 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
+--- !u!1 &1103527998 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8265867108581754349, guid: d60c66a8cb1dc3744bba45b9da865557,
+    type: 3}
+  m_PrefabInstance: {fileID: 8265867108370247438}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1248101647
 GameObject:
   m_ObjectHideFlags: 0
